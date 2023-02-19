@@ -1,0 +1,78 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Hard Drive Clicking Sound Effect_data" version="1.3.0" audacityversion="2.3.3" sel0="0.0000000000" sel1="50.9396371882" vpos="0" h="0.0000000000" zoom="27.0240838579" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="ARTIST" value="Hanro"/>
+		<tag name="TRACKNUMBER" value="3"/>
+		<tag name="YEAR" value="2007"/>
+		<tag name="COMMENTS" value="I need to get this fixed. That clicking noise cannot be good"/>
+	</tags>
+	<wavetrack name="Hard Drive Clicking Sound Effect" isSelected="1" height="138" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2246438">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fc90.au" len="262144" min="-0.891251" max="0.422004" rms="0.063911"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f455.au" len="262144" min="-0.266523" max="0.252208" rms="0.051937"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1f236.au" len="262144" min="-0.247974" max="0.229412" rms="0.047256"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1f64e.au" len="262144" min="-0.322508" max="0.393406" rms="0.058118"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1f931.au" len="262144" min="-0.299094" max="0.309684" rms="0.057073"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="eff1f24e.au" len="262144" min="-0.555132" max="0.582538" rms="0.079605"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="eff1ffc3.au" len="262144" min="-0.277519" max="0.28605" rms="0.053665"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="eff1fb7c.au" len="262144" min="-0.520248" max="0.433267" rms="0.056846"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="eff1f1db.au" len="149286" min="-0.379902" max="0.331081" rms="0.072364"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Hard Drive Clicking Sound Effect" isSelected="1" height="162" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2246438">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f99e.au" len="262144" min="-0.637282" max="0.537813" rms="0.066649"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f0fa.au" len="262144" min="-0.439916" max="0.331895" rms="0.077698"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1f4d1.au" len="262144" min="-0.423678" max="0.406121" rms="0.108477"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1f9c4.au" len="262144" min="-0.499741" max="0.549777" rms="0.148203"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1fc37.au" len="262144" min="-0.527084" max="0.594416" rms="0.188202"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="eff1faf2.au" len="262144" min="-0.648821" max="0.629012" rms="0.223983"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="eff1f830.au" len="262144" min="-0.542244" max="0.527418" rms="0.173363"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="eff1fb21.au" len="262144" min="-0.532323" max="0.537454" rms="0.16953"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="eff1f7b3.au" len="149286" min="-0.598464" max="0.601465" rms="0.234486"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
