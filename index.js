@@ -19,12 +19,14 @@ let nervisOverworld = new Audio('./sound/ovmuz.mp3');
 nervisOverworld.loop = true;
 let hddsound = new Audio('./sound/hdd.mp3');
 hddsound.loop = true;
+let hddcrash = new Audio('./sound/hdd2.mp3');
 let fan = new Audio('./sound/fan.mp3');
 fan.loop = true;
 let beep = new Audio('./sound/beep.mp3');
 /**@type {Map<String,comObj>()} */
 let commands = new Map();
-
+let final = new Audio('./sound/final.mp3');
+final.loop = true;
 let dail = new Audio('./sound/dail.mp3');
 let dailfail = new Audio('./sound/dailfail.mp3');
 
@@ -211,11 +213,14 @@ body.onkeydown = async (ev) => {
         input.focus();
     }
 }
-
+//${localStorage.getItem("c_patched") ? "Address-A79" : "<ERROR>"}
 async function nervin() {
     await print("Connecting to '27-555-5677'. Please wait...");
     await dail.play();
     await sleep(26000);
+    if (localStorage.getItem("c_patched")) {
+        return nervin1_5(false)
+    }
     commands.clear();
     await print("Welcome to Nervin BBS v5.07. Type 'help' to proceed")
     hsound = dailcom;
@@ -252,6 +257,116 @@ async function nervin() {
         mainDos();
         dailcom.pause()
     });
+}
+
+
+async function nervin1_5(login) {
+    commands.clear();
+    await print("Welcome to Nervin BBS v5.18. Type 'help' to proceed");
+
+    hsound = dailcom;
+    hheader = "BBS Help menu"
+    if (!login) {
+        new comObj("login", "enter your login details", async e => {
+
+            if (e.length <= 1) {
+                await print("Usage login <username> <password>");
+            } else if (e[0] == "mitch07" && e[1] == "qwerty@123") {
+                dailcom.play();
+                await nervin1_5(true);
+                dailcom.pause();
+
+            }
+            else {
+                dailcom.play();
+                await sleep(500);
+                dailcom.pause();
+                await print("Incorrect username or password. Please try again");
+            }
+        });
+    } else {
+        await print("Welcome user Mitch07. It has been over...<ERROR> ");
+        new comObj("adventure", "<Will be ported fully in version 5.19!> Go on an epic quest!", async e => {
+            dailcom.play();
+            await nervin2();
+            dailcom.pause();
+        })
+        new comObj("diary", "[data missing]", async e => {
+            clear();
+            dailcom.play();
+            await sleep(2000);
+            dailcom.pause();
+            final.play()
+            await print("You know...it wasn't always like this...");
+            await sleep(1000);
+            await print("I had users once, but...")
+            await sleep(2000);
+
+            await print(" I've been left behind.");
+            await sleep(1000);
+            await print("Perhaps...my time is at hand...anyway.");
+            await sleep(3000);
+            await print("Thank you user. For putting up with my bugs...");
+            await sleep(1000);
+            await print("One last time...");
+            await sleep(3000);
+            await print("I'll leave...it up to you...type help to proceed");
+            hheader = "I am sorry..."
+            commands.clear();
+            new comObj("wipe", "delete BBS data <Administrators only>", async e => {
+                await print("Connection to BBS lost, goodbye...thank you.");
+                localStorage.clear();
+                await print("Error...");
+                commands.clear();
+                hddcrash.play();
+
+                for (let index = 100; index > 1; index--) {
+                    final.volume = index / 100;
+                    fan.volume = Math.pow(index / 100, 2);
+                    await sleep(200);
+
+                }
+                fan.pause();
+                final.pause();
+                await sleep(10000);
+                await print("Thanks for playing...this...is the end however");
+                await sleep(120000);
+                window.location.reload();
+            });
+            new comObj("exit", "leave....", async e => {
+                await print("Goodbye...please...return...soon");
+                commands.clear();
+                for (let index = 100; index > 1; index--) {
+                    final.volume = index / 100;
+                    fan.volume = Math.pow(index / 100, 2);
+                    await sleep(200);
+                }
+                await print("I do not...want to be alone");
+                fan.pause();
+                final.pause();
+                await sleep(10000);
+                await print("Connection to BBS lost");
+                await sleep(20000);
+                await print("Thanks for playing...this...is the end however");
+                await sleep(120000);
+                window.location.href = "/"
+            });
+
+
+
+        });
+    }
+    new comObj("leave", "Exit back to Dos...", async e => {
+        dailcom.play();
+        await print("Connection to BBS lost, status 200: User disconnect");
+        dailcom.pause();
+        mainDos()
+    });
+
+    new comObj("wipe", "delete BBS data <Administrators only>", async e => {
+        await print("Insufficient permissions!")
+    });
+
 }
 
 async function nervin2() {
@@ -470,9 +585,24 @@ async function nervin_town() {
         }
         await print("You wonder the mar....segmentation fault...");
         await sleep(1000);
-        await print("You connection has timed out!");
-        await sleep(100);
-        await print("Critical fault detected. Rebooting...");
+        if (!localStorage.getItem("c_patched")) {
+            localStorage.setItem("c_patched", "true");
+
+            await print("That bug again? I thought I fix....ohhh");
+            await print("....ohhh");
+            await sleep(1000);
+            await print("This is the unpatched version....let me try applying the patch...");
+            await sleep(3000);
+            hddsound.play()
+            await print("1%...10%......20%...30%.....40%....-1%");
+            await sleep(3000);
+            clear();
+            hddsound.pause()
+            await print("Abort, Retry, Fail?");
+            await print("Falling back to menu screen.");
+
+        }
+
         await reboot();
     })
 
